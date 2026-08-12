@@ -1,5 +1,6 @@
 import {SearchBar} from "../components/SearchBar.tsx";
 import {usePokemons} from "../hooks/usePokemons.tsx";
+import PokemonResultsList from "../components/PokemonResultsList.tsx";
 
 function Home(){
     const {pokemons, loadingPokemons, errorLoading} = usePokemons();
@@ -10,11 +11,7 @@ function Home(){
         ) : errorLoading ? (
             <p>{errorLoading}</p>
         ) : (
-            <div>
-                {pokemons.slice(0, 10).map((pokemon) => (
-                    <p key={pokemon.name}>{pokemon.name}</p>
-                ))}
-            </div>
+            <PokemonResultsList pokemons={pokemons} />
         )}
     </div>;
 }
