@@ -1,4 +1,8 @@
+import {SearchBar} from "../components/SearchBar.tsx";
+
 function Home(){
-    return <div>HOME</div>;
+    return <div>
+        <SearchBar isLoading={false} onSearch={()=>{console.log("hola")}}/>
+    </div>;
 }
 export default Home;
