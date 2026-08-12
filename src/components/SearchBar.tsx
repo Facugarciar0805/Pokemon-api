@@ -21,7 +21,7 @@ export function SearchBar({onSearch,isLoading}: SearchBarProps){
 		type="text"
 		value={input}
 		onChange={(e)=>setInput(e.target.value)}
-		placeHolder="Ej: pikachu, charizard..."
+		placeholder="Ej: pikachu, charizard..."
 		className="flex-1 px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 outline-none"
 		/>
 		<button
@@ -30,11 +30,7 @@ export function SearchBar({onSearch,isLoading}: SearchBarProps){
 		className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:opacity-50"
 		>
 		Buscar
-		<button/>
+		</button>
 		</form>
 	);
-}
-
-	)
-
 }
