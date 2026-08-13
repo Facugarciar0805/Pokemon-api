@@ -20,7 +20,11 @@ export function SearchBar({onSearch,isLoading}: SearchBarProps){
 		<input
 		type="text"
 		value={input}
-		onChange={(e)=>setInput(e.target.value)}
+		onChange={(e)=> {
+			const value = e.target.value;
+			setInput(value);
+			onSearch(value.toLowerCase());
+		}}
 		placeholder="Ej: pikachu, charizard..."
 		className="flex-1 px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 outline-none"
 		/>

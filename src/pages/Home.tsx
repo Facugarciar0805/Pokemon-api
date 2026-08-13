@@ -1,17 +1,23 @@
 import {SearchBar} from "../components/SearchBar.tsx";
 import {usePokemons} from "../hooks/usePokemons.tsx";
 import PokemonResultsList from "../components/PokemonResultsList.tsx";
+import {useState} from "react";
 
 function Home(){
     const {pokemons, loadingPokemons, errorLoading} = usePokemons();
+    const [searchTerm, setSearchTerm] = useState("");
+    const filteredPokemons = pokemons.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return <div className="flex flex-col items-center justify-center min-h-screen">
-            <SearchBar isLoading={false} onSearch={()=>{console.log("hola")}}/>
+            <SearchBar isLoading={loadingPokemons} onSearch={setSearchTerm}/>
             {loadingPokemons ? (
                 <p>Cargando...</p>
             ) : errorLoading ? (
                 <p>{errorLoading}</p>
             ) : (
-                <PokemonResultsList pokemons={pokemons} />
+                <PokemonResultsList pokemons={filteredPokemons} />
             )}
         </div>
 }
