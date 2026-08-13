@@ -10,7 +10,7 @@ function Home(){
         pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    return <div className="flex flex-col items-center justify-center min-h-screen">
+    return <div className="flex flex-col items-center min-h-screen pt-8">
             <SearchBar isLoading={loadingPokemons} onSearch={setSearchTerm}/>
             {loadingPokemons ? (
                 <p>Cargando...</p>
