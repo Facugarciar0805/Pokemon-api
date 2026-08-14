@@ -23,3 +23,15 @@ export async function getPokemons(): Promise<Result<Pokemon[]>> {
         return failure(error);
     }
 }
+export async function getPokemonByName(name: string): Promise<Result<Pokemon>> {
+    try {
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name);
+        if (!response.ok) {
+            return failure(new Error(`Error ${response.status} ${response.statusText}`));
+        }
+        const data = await response.json();
+        return success(data);
+    } catch (error) {
+        return failure(error);
+    }
+}

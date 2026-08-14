@@ -22,7 +22,6 @@ export function usePokemons() {
             }
             setLoadingPokemons(false);
         }
-
         loadPokemons();
         return () => { cancelled = true; };
     }, []);
