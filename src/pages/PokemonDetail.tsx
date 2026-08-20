@@ -1,6 +1,7 @@
 import {useSomePokemon} from "../hooks/useSomePokemon.tsx";
 import {useParams} from "react-router-dom";
 import AbilityCard from "../components/AbilityCard.tsx";
+import TypeCard from "../components/TypeCard.tsx";
 
 function PokemonDetail() {
     const name = useParams().name as string
@@ -26,6 +27,11 @@ function PokemonDetail() {
                         <div className="flex flex-row justify-center items-center pt-2 pb-2">
                             {pokemon?.abilities.map((a) => (
                                 <AbilityCard ability={a?.ability.name}/>
+                            ))}
+                        </div>
+                        <div className="flex flex-row justify-center items-center pt-2 pb-2">
+                            {pokemon?.types.map((t) => (
+                                <TypeCard type={t?.type.name}/>
                             ))}
                         </div>
                     </div>
