@@ -24,15 +24,21 @@ function PokemonDetail() {
                         <div className="flex capitalize tracking-wide flex-col justify-center items-center pt-2 pb-2">
                             <h2 className="text-2xl">{pokemon?.name}</h2>
                         </div>
-                        <div className="flex flex-row justify-center items-center pt-2 pb-2">
-                            {pokemon?.abilities.map((a) => (
-                                <AbilityCard ability={a?.ability.name}/>
-                            ))}
+                        <div className="flex flex-col items-center pt-2 pb-2">
+                            <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Abilities</p>
+                            <div className="flex flex-row justify-center items-center">
+                                {pokemon?.abilities.map((a) => (
+                                    <AbilityCard ability={a?.ability.name}/>
+                                ))}
+                            </div>
                         </div>
-                        <div className="flex flex-row justify-center items-center pt-2 pb-2">
-                            {pokemon?.types.map((t) => (
-                                <TypeCard type={t?.type.name}/>
-                            ))}
+                        <div className="flex flex-col items-center pt-2 pb-2">
+                            <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Types</p>
+                            <div className="flex flex-row justify-center items-center">
+                                {pokemon?.types.map((t) => (
+                                    <TypeCard type={t?.type.name}/>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
